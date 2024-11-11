@@ -134,8 +134,11 @@ function removeTrailingWhitespaces(value) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  if (times <= 0) {
+    return '';
+  }
+  return str.repeat(times);
 }
 
 /**
@@ -150,8 +153,9 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  str.indexOf(value);
+  return str.replace(value, '');
 }
 
 /**
@@ -166,8 +170,15 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  if (str.includes(value)) {
+    const dlinaSub = value.length;
+    const index = str.lastIndexOf(value);
+    const newStr = str.slice(0, index);
+    const newStr2 = str.slice(index + dlinaSub);
+    return newStr.concat(newStr2);
+  }
+  return str;
 }
 
 /**
@@ -182,8 +193,19 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  if (str === undefined || str === '' || str === null) return 0;
+  const newArr = [];
+  let char;
+  let sum = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    char = str.charCodeAt(i);
+    newArr.push(char);
+  }
+  newArr.forEach(function (num) {
+    sum += num;
+  });
+  return sum;
 }
 
 /**
