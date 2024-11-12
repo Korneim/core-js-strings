@@ -251,10 +251,17 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
-}
-
+// function formatTime(minutes, seconds) {
+//   const min = minutes.toString();
+//   const sec = seconds.toString();
+//   if (minutes < 10) {
+//     min.padStart(3, '0');
+//   }
+//   if (seconds < 10) {
+//     sec.padStart(3, '0');
+//   }
+//   return `${min}:${sec}`;
+// }
 /**
  * Returns a string in reverse order.
  *
@@ -392,8 +399,13 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  let newArr1 = [];
+  const newArr2 = str.split(' ');
+  for (let i = 0; i < newArr2.length; i += 1) {
+    newArr1 += `${newArr2[i].split('').reverse().join('')} `;
+  }
+  return newArr1.trimEnd();
 }
 
 /**
